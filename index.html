@@ -17,18 +17,24 @@
                     <li><a href="#services">Услуги</a></li>
                     <li><a href="#catalog">Растения</a></li>
                     <li><a href="#features">Почему мы</a></li>
+                    <li><a href="#reviews">Отзывы</a></li>
                     <li><a href="#contacts">Контакты</a></li>
-                    <li><a href="#contacts" class="btn header-btn">Консультация</a></li>
+                    <li>
+                        <button class="cart-toggle-btn" id="cart-toggle">
+                            🛒 Корзина <span id="cart-count">0</span>
+                        </button>
+                    </li>
                 </ul>
             </nav>
+            <a href="#contacts" class="btn header-btn">Консультация</a>
         </div>
     </header>
 
     <section class="hero">
         <div class="container">
-            <h1>Оживите ваш интреьер природой</h1>
+            <h1>Оживите ваш интерьер природой</h1>
             <p>Профессиональный фитодизайн, vertical-озеленение и редкие комнатные растения для создания гармонии в доме и офисе.</p>
-            <a href="#contacts" class="btn">Вызвать специалиста</a>
+            <a href="#catalog" class="btn">Смотреть каталог</a>
         </div>
     </section>
 
@@ -70,12 +76,10 @@
         </div>
     </section>
 
-
-        <section id="catalog" class="catalog">
+    <section class="catalog" id="catalog">
         <div class="container">
             <h2 class="section-title">Наши популярные растения 😊🌸🌺</h2>
             <div class="catalog-grid">
-                <!-- 1. Сирень -->
                 <div class="plant-card">
                     <img src="lilac1.jpg" alt="Сирень Мадам Лемуан" style="width: 100%; height: 200px; object-fit: cover; margin-bottom: 15px;">
                     <h3>Мадам Лемуан (Белая махровая)</h3>
@@ -83,9 +87,8 @@
                         Французская классика с крупными, белоснежными и невероятно ароматными соцветиями.
                     </p>
                     <span class="price">2 500 ₽</span>
-                    <a href="#contacts" class="btn">Купить</a>
+                    <button class="btn add-to-cart-btn" data-id="1" data-name="Сирень Мадам Лемуан" data-price="2500">В корзину</button>
                 </div>
-                <!-- 2. Розовая роза -->
                 <div class="plant-card">
                     <img src="rose.jpg" alt="Роза Боника 82" style="width: 100%; height: 200px; object-fit: cover; margin-bottom: 15px;">
                     <h3>Боника 82 (Нежно-розовая)</h3>
@@ -93,9 +96,8 @@
                         Изящная кустовая роза, радующая обильным и непрерывным цветением всё лето.
                     </p>
                     <span class="price">3 200 ₽</span>
-                    <a href="#contacts" class="btn">Купить</a>
+                    <button class="btn add-to-cart-btn" data-id="2" data-name="Боника 82 (Нежно-розовая)" data-price="3200">В корзину</button>
                 </div>
-                <!-- 3. Белая роза -->
                 <div class="plant-card">
                     <img src="white-rose.jpg" alt="Роза Джулия Ренессанс" style="width: 100%; height: 200px; object-fit: cover; margin-bottom: 15px;">
                     <h3>Джулия Ренессанс (Белая чайно-гибридная роза)</h3>
@@ -103,9 +105,8 @@
                         Роскошный сорт с крупными густомахровыми лепестками фарфорового оттенка.
                     </p>
                     <span class="price">2 900 ₽</span>
-                    <a href="#contacts" class="btn">Купить</a>
+                    <button class="btn add-to-cart-btn" data-id="3" data-name="Джулия Ренессанс (Белая чайно-гибридная роза)" data-price="2900">В корзину</button>
                 </div>
-                <!-- 4. Гортензия -->
                 <div class="plant-card">
                     <img src="hydrangea.jpg" alt="Гортензия Ванилла Фрейз" style="width: 100%; height: 200px; object-fit: cover; margin-bottom: 15px;">
                     <h3>Ванилла Фрейз (Метельчатая гортензия)</h3>
@@ -113,13 +114,11 @@
                         Пышные соцветия-метёлки, меняющие цвет с кремово-белого на клубнично-розовый.
                     </p>
                     <span class="price">3 800 ₽</span>
-                    <a href="#contacts" class="btn">Купить</a>
+                    <button class="btn add-to-cart-btn" data-id="4" data-name="Ванилла Фрейз (Метельчатая гортензия)" data-price="3800">В корзину</button>
                 </div>
             </div>
         </div>
     </section>
-
-
 
     <section id="features" class="features">
         <div class="container">
@@ -141,12 +140,64 @@
             </div>
         </div>
     </section>
-
-    <section id="contacts" class="contacts">
+    <section class="reviews" id="reviews">
         <div class="container">
-            <h2 class="section-title">Связаться с нами 💌</h2>
+            <h2 class="section-title">Отзывы клиентов</h2>
+            
             <div class="contacts-wrapper">
-                <form class="contact-form" onsubmit="event.preventDefault(); alert('Заявка отправлена!');">
+                <!-- Левая колонка: Список отзывов -->
+                <div class="contact-info" id="reviews-list-container" style="justify-content: flex-start; gap: 20px;">
+                    <div class="review-card" style="width: 100%;">
+                        <div class="review-author">Елена В.</div>
+                        <div class="review-stars">★★★★★</div>
+                        <p class="review-text">«Заказала озеленение гостиной под ключ. Ребята подобрали прекрасные теневыносливые растения. Теперь комната выглядит как с обложки журнала!»</p>
+                    </div>
+                    <div class="review-card" style="width: 100%;">
+                        <div class="review-author">Михаил К.</div>
+                        <div class="review-stars">★★★★★</div>
+                        <p class="review-text">«Спасибо за спасение моего фикуса! Приехали, пересадили, дали чёткие инструкции. Растение ожило и пустило новые листья.»</p>
+                    </div>
+                </div>
+
+                <!-- Правая колонка: Красивая форма написания отзыва -->
+                <div class="contact-form">
+                    <h3 style="margin-bottom: 20px; color: #1E4620;">Оставить свой отзыв</h3>
+                    <form id="new-review-form">
+                        <div class="form-group">
+                            <label for="review-author-name">Ваше имя</label>
+                            <input type="text" id="review-author-name" required placeholder="Имя">
+                        </div>
+                        <div class="form-group">
+                            <label style="display: block;">Ваша оценка</label>
+                            <div class="rating-area">
+                                <input type="radio" id="star-5" name="rating" value="5" checked>
+                                <label for="star-5" title="Оценка 5"></label>
+                                <input type="radio" id="star-4" name="rating" value="4">
+                                <label for="star-4" title="Оценка 4"></label>
+                                <input type="radio" id="star-3" name="rating" value="3">
+                                <label for="star-3" title="Оценка 3"></label>
+                                <input type="radio" id="star-2" name="rating" value="2">
+                                <label for="star-2" title="Оценка 2"></label>
+                                <input type="radio" id="star-1" name="rating" value="1">
+                                <label for="star-1" title="Оценка 1"></label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="review-comment">Текст отзыва</label>
+                            <textarea id="review-comment" rows="4" required placeholder="Поделитесь вашими впечатлениями..."></textarea>
+                        </div>
+                        <button type="submit" class="btn" style="width: 100%;">Опубликовать отзыв</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="contacts" id="contacts">
+        <div class="container">
+            <h2 class="section-title">Связаться с нами</h2>
+            <div class="contacts-wrapper">
+                <form class="contact-form" action="#" onsubmit="alert('Заявка отправлена!'); this.reset(); return false;">
                     <div class="form-group">
                         <label for="name">Ваше имя</label>
                         <input type="text" id="name" required placeholder="Имя">
@@ -156,22 +207,23 @@
                         <input type="tel" id="phone" required placeholder="+7 (999) 000-00-00">
                     </div>
                     <div class="form-group">
-                        <label for="msg">Какое помещение хотите озеленить?</label>
-                        <textarea id="msg" rows="4" placeholder="Квартира, офис, студия..."></textarea>
+                        <label for="msg">Что вас интересует?</label>
+                        <textarea id="msg" rows="4" placeholder="Хочу подобрать растения для спальни..."></textarea>
                     </div>
                     <button type="submit" class="btn">Отправить заявку</button>
                 </form>
                 <div class="contact-info">
                     <h3>Шоурум «🍃 Зелёный Угол»</h3>
-                    <p><strong>Адрес:</strong> г. Санкт-Петербург, ул. Большая Зеленина, д. 12</p>
-                    <p><strong>Телефон:</strong> +7 (812) 555-44-33</p>
-                    <p><strong>Часы работы:</strong> Ежедневно с 10:00 до 21:00</p>
+                    <p>📍 г. Санкт-Петербург, ул. Зелёная, д. 10</p>
+                    <p>📞 +7 (812) 123-45-67</p>
+                    <p>✉️ info@greenugol.ru</p>
+                    <p>🕒 Ежедневно с 10:00 до 21:00</p>
                 </div>
             </div>
         </div>
     </section>
 
-     <footer>
+   <footer>
         <div class="container">
             <p style="font-style: italic; margin-bottom: 10px; font-size: 16px; color: #e8f0e9;">
                 🌱 Все фотографии на сайте — это реальные цветы, выращенные автором с любовью!<br>Мы бережно заботимся о каждом саженце, чтобы он принёс гармонию и уют в ваш интерьер!» 🌱✨ 🌸
@@ -180,6 +232,203 @@
         </div>
     </footer>
 
+    <div class="cart-modal" id="cart-modal">
+        <div class="cart-modal-header">
+            <span>🛒 Ваша корзина</span>
+            <button class="cart-close-btn" id="cart-close">&times;</button>
+        </div>
+        <div class="cart-items-list" id="cart-items-container">
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total">Итого: <span id="cart-total-price">0</span> ₽</div>
+            <button class="btn style-btn" style="width:100%; padding: 8px;" id="checkout-btn">Оформить заказ</button>
+        </div>
+    </div>
+    <!-- Всплывающая плашка -->
+    <div class="toast-notification" id="review-toast">
+        ✨ Спасибо за ваш отзыв!
+    </div>
 
+    <script>
+        // Инициализация элементов корзины
+        const cartToggle = document.getElementById('cart-toggle');
+        const cartClose = document.getElementById('cart-close');
+        const cartModal = document.getElementById('cart-modal');
+        const cartCount = document.getElementById('cart-count');
+        const cartItemsContainer = document.getElementById('cart-items-container');
+        const cartTotalPrice = document.getElementById('cart-total-price');
+        const addToCartButtons = document.querySelectorAll('.add-to-cart-btn');
+        const checkoutBtn = document.getElementById('checkout-btn');
+        
+        let cart = [];
+
+        // Переключение отображения корзины
+        if (cartToggle && cartModal) {
+            cartToggle.addEventListener('click', (e) => {
+                e.preventDefault();
+                if (cartModal.style.display === 'flex') {
+                    cartModal.style.display = 'none';
+                } else {
+                    cartModal.style.display = 'flex';
+                    updateCart();
+                }
+            });
+        }
+
+        if (cartClose && cartModal) {
+            cartClose.addEventListener('click', () => {
+                cartModal.style.display = 'none';
+            });
+        }
+
+        // Кнопка "В корзину" (Логика добавления и анимация счетчика)
+        addToCartButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const id = button.getAttribute('data-id');
+                const name = button.getAttribute('data-name');
+                const price = parseInt(button.getAttribute('data-price'));
+
+                const existingItem = cart.find(item => item.id === id);
+
+                if (existingItem) {
+                    existingItem.quantity += 1;
+                } else {
+                    cart.push({ id, name, price, quantity: 1 });
+                }
+
+                updateCart();
+
+                if (cartToggle) {
+                    cartToggle.style.transform = 'scale(1.15)';
+                    cartToggle.style.transition = 'transform 0.1s ease';
+                    setTimeout(() => {
+                        cartToggle.style.transform = 'scale(1)';
+                    }, 100);
+                }
+            });
+        });
+        // Управление количеством внутри корзины
+        if (cartItemsContainer) {
+            cartItemsContainer.addEventListener('click', (e) => {
+                const id = e.target.getAttribute('data-id');
+                if (!id) return;
+
+                const item = cart.find(item => item.id === id);
+
+                if (e.target.classList.contains('plus-qty')) {
+                    item.quantity += 1;
+                } else if (e.target.classList.contains('minus-qty')) {
+                    item.quantity -= 1;
+                    if (item.quantity <= 0) {
+                        cart = cart.filter(item => item.id !== id);
+                    }
+                } else if (e.target.classList.contains('cart-del-btn')) {
+                    cart = cart.filter(item => item.id !== id);
+                }
+
+                updateCart();
+            });
+        }
+
+        // Рендеринг корзины
+        function updateCart() {
+            if (!cartItemsContainer) return;
+            cartItemsContainer.innerHTML = '';
+            let totalItems = 0;
+            let totalPrice = 0;
+
+            if (cart.length === 0) {
+                cartItemsContainer.innerHTML = '<div class="empty-cart-text">Корзина пока пуста</div>';
+            } else {
+                cart.forEach(item => {
+                    totalItems += item.quantity;
+                    totalPrice += item.price * item.quantity;
+
+                    const itemHtml = `
+                        <div class="cart-item">
+                            <div class="cart-item-info">
+                                <div><strong>${item.name}</strong></div>
+                                <div>${item.price} ₽ x ${item.quantity}</div>
+                            </div>
+                            <div class="cart-item-actions">
+                                <button class="cart-qty-btn minus-qty" data-id="${item.id}">-</button>
+                                <button class="cart-qty-btn plus-qty" data-id="${item.id}">+</button>
+                                <button class="cart-del-btn" data-id="${item.id}">🗑️</button>
+                            </div>
+                        </div>
+                    `;
+                    cartItemsContainer.insertAdjacentHTML('beforeend', itemHtml);
+                });
+            }
+
+            if (cartCount) cartCount.textContent = totalItems;
+            if (cartTotalPrice) cartTotalPrice.textContent = totalPrice.toLocaleString('ru-RU');
+        }
+
+        // Перенос позиций корзины в поле заявки
+        if (checkoutBtn) {
+            checkoutBtn.addEventListener('click', () => {
+                if (cart.length === 0) {
+                    alert('Ваша корзина пуста!');
+                    return;
+                }
+                
+                let orderList = "Хочу заказать растения из корзины:\n";
+                cart.forEach(item => {
+                    orderList += `- ${item.name} (${item.quantity} шт.)\n`;
+                });
+                
+                const msgTextarea = document.getElementById('msg');
+                if (msgTextarea) {
+                    msgTextarea.value = orderList;
+                    cartModal.style.display = 'none';
+                    document.getElementById('contacts').scrollIntoView({ behavior: 'smooth' });
+                    alert('Товары добавлены в поле заявки ниже! Заполните ваше имя и телефон для завершения.');
+                }
+            });
+        }
+
+        // Логика динамической формы отзывов с вылетающей плашкой
+        const newReviewForm = document.getElementById('new-review-form');
+        const reviewsListContainer = document.getElementById('reviews-list-container');
+        const reviewToast = document.getElementById('review-toast');
+
+        if (newReviewForm) {
+            newReviewForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+
+                const name = document.getElementById('review-author-name').value;
+                const comment = document.getElementById('review-comment').value;
+                const ratingInput = document.querySelector('input[name="rating"]:checked');
+                const rating = ratingInput ? ratingInput.value : 5;
+
+                const stars = '★'.repeat(rating) + '☆'.repeat(5 - rating);
+
+                const reviewHtml = `
+                    <div class="review-card" style="width: 100%;">
+                        <div class="review-author">${name}</div>
+                        <div class="review-stars">${stars}</div>
+                        <p class="review-text">«${comment}»</p>
+                    </div>
+                `;
+
+                if (reviewsListContainer) {
+                    reviewsListContainer.insertAdjacentHTML('afterbegin', reviewHtml);
+                }
+                
+                newReviewForm.reset();
+
+                // Красивое появление плашки вместо старого alert
+                if (reviewToast) {
+                    reviewToast.classList.add('show');
+
+                    setTimeout(() => {
+                        reviewToast.classList.remove('show');
+                    }, 4000);
+                }
+            });
+        }
+    </script>
 </body>
 </html>
+
