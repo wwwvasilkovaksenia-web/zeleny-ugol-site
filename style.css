@@ -498,7 +498,7 @@
             margin-bottom: 15px;
         }
         .rating-area:not(:checked) > input {
-            display: none;
+            display: none !important;
         }
         .rating-area:not(:checked) > label {
             font-size: 30px;
